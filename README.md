@@ -20,3 +20,7 @@ In this milestone, I simulated a slow response by adding a delay in request hand
 
 ![commit 5 screenshot](./commit5.png)
 In this milestone, I replaced the single-threaded server with a custom `ThreadPool` that starts multiple worker threads. Each connection is handed off through a shared channel, so several requests can be processed at the same time. The terminal output (e.g., “Worker 0 got a job; executing”) confirmed that slow requests no longer block the entire server, significantly improving responsiveness.
+
+## Bonus Reflection
+
+In this update, I replaced the direct panic on zero-size pools with a `build` function that returns a `Result`. This allows the code to gracefully handle invalid sizes instead of crashing. The original `new` method still wraps `build` for backward compatibility, but now `build` itself checks the pool size and returns an error if it’s zero. In `main.rs`, I use `unwrap_or_else` to manage any errors, making the thread pool setup safer and more explicit.
