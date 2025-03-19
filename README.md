@@ -11,3 +11,7 @@ This milestone focused on returning actual HTML to the browser. I updated the `h
 
 ![commit 3 screenshot](./commit3.png)
 In this milestone, I refined the server to respond based on the requested path. By parsing the first line of the HTTP request, the code checks if it’s “GET / HTTP/1.1” to serve the main page with a 200 OK status. Anything else returns a 404 NOT FOUND. I also combined setting the `status_line` and `filename` into one step, eliminating duplicated response code. This makes the server logic clearer and more maintainable.
+
+## Commit 4 Reflection
+
+In this milestone, I simulated a slow response by adding a delay in request handling. Testing multiple browser windows showed how a single-threaded server blocks all other requests when one is delayed. 
