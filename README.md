@@ -6,3 +6,8 @@ In this milestone, I built a simple Rust web server that listens for TCP connect
 
 ![commit 2 screenshot](./commit2.png)
 This milestone focused on returning actual HTML to the browser. I updated the `handle_connection` method to build a proper HTTP response and serve a simple `hello.html` file. It was a great introduction to how HTTP responses work (status line, headers, body) and how Rust can read files and send them back to the client.
+
+## Commit 3 Reflection
+
+![commit 3 screenshot](./commit3.png)
+In this milestone, I refined the server to respond based on the requested path. By parsing the first line of the HTTP request, the code checks if it’s “GET / HTTP/1.1” to serve the main page with a 200 OK status. Anything else returns a 404 NOT FOUND. I also combined setting the `status_line` and `filename` into one step, eliminating duplicated response code. This makes the server logic clearer and more maintainable.
