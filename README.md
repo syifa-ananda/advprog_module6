@@ -15,3 +15,8 @@ In this milestone, I refined the server to respond based on the requested path. 
 ## Commit 4 Reflection
 
 In this milestone, I simulated a slow response by adding a delay in request handling. Testing multiple browser windows showed how a single-threaded server blocks all other requests when one is delayed. 
+
+## Commit 5 Reflection
+
+![commit 5 screenshot](./commit5.png)
+In this milestone, I replaced the single-threaded server with a custom `ThreadPool` that starts multiple worker threads. Each connection is handed off through a shared channel, so several requests can be processed at the same time. The terminal output (e.g., “Worker 0 got a job; executing”) confirmed that slow requests no longer block the entire server, significantly improving responsiveness.
